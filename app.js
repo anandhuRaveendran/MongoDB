@@ -9,13 +9,14 @@ app.listen(port,()=>{
 });
 app.use(express.json());
 app.use('/',routes);
+
 mongoose.connect(
-    "mongodb://localhost:27017/students"
+    "mongodb://localhost:27017/UserDetails"
 );
-const databse = mongoose.connection;
-databse.on("error",(error)=>{
+const database = mongoose.connection;
+database.on("error",(error)=>{
     console.log(error);
 });
-databse.once("connected",()=>{
+database.once("connected",()=>{
     console.log("Database Connected");
 });
